@@ -1,11 +1,6 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import TemplateName from '../../Template/TemplateName'
 import Home from './components/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LayOut from './components/LayOut/LayOut'
-import About from './components/About/About'
 import Categories from './components/Categories/Categories'
 import Products from './components/Products/Products'
 import Login from './components/Login/Login'
@@ -55,7 +50,6 @@ let routes = createBrowserRouter([
 ])
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
 
