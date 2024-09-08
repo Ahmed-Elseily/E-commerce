@@ -73,7 +73,7 @@ export default function CashCehckOut() {
         console.log(response.data.session);
 
         
-        // window.location.href = response.data.session.url;
+        window.location.href = response.data.session.url;
         deleteCart()
         setCartCounter(0)
         navigate("/cart")

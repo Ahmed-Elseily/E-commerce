@@ -54,7 +54,7 @@ export default function RecentProducts() {
 
     if (response.data.status === 'success') {
       toast.success(response.data.message);
-      setCartCounter(response.data);
+      setCartCounter(response.data.numOfCartItems);
     } else {
       toast.error(response.data.message);
     }
