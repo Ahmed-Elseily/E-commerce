@@ -39,7 +39,7 @@ let routes = createBrowserRouter([
       { path: "cashpay", element: <ProtectedRoute><Checkout /></ProtectedRoute> },
       { path: "forget", element: <ForgetPassword /> },
       { path: "resetcode", element: <ResetCode /> },
-      { path: "newpassword", element: <NewPassword />},
+      { path: "newpassword", element: <NewPassword /> },
       { path: "wishlist", element: <ProtectedRoute><WishList /></ProtectedRoute> },
       { path: "allorders", element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
       { path: "productdetails/:id/:category", element: <ProtectedRoute><ProductDetails /></ProtectedRoute> },
@@ -53,17 +53,18 @@ function App() {
 
   return (
 
-    <QueryClientProvider client={query}>
-      <UserContextProvider>
-          <WishListContextProvider>
-            <CartContextProvider>
-              <RouterProvider router={routes}></RouterProvider>
-              <Toaster />
-              <ReactQueryDevtools />
-            </CartContextProvider>
-          </WishListContextProvider>
-      </UserContextProvider>
-    </QueryClientProvider>
+
+    <WishListContextProvider>
+      <CartContextProvider>
+        <QueryClientProvider client={query}>
+          <UserContextProvider>
+            <RouterProvider router={routes}></RouterProvider>
+            <Toaster />
+            <ReactQueryDevtools />
+          </UserContextProvider>
+        </QueryClientProvider>
+      </CartContextProvider>
+    </WishListContextProvider>
 
 
   )

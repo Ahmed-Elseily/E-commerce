@@ -52,7 +52,7 @@ export default function Navbar() {
                 <NavLink to="cart">
                   <div className='relative me-5'>
                     <i className='fa-solid fa-cart-shopping text-xl text-green-600 mx-2'></i>
-                    <span className='absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-green-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center'>{cartCounter?.numOfCartItems}</span>
+                    <span className='absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-green-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center'>{cartCounter}</span>
                   </div>
                 </NavLink>
                 <NavLink to="wishlist">

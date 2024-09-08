@@ -37,6 +37,7 @@ export default function AllOrders() {
         <h2 className="text-3xl font-semibold text-green-600">Orders History</h2>
       </div>
       <div className='h-screen'>
+        <h1>ahmed kamal</h1>
 
       </div>
 

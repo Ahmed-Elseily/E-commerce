@@ -4,10 +4,7 @@ import axios from 'axios';
 
 export const WishContext = createContext()
 
-let headers = {
-  token: localStorage.getItem("userToken")
-}
-console.log(headers);
+
 
 
 export default function WishListContextProvider(props) {
@@ -17,7 +14,9 @@ export default function WishListContextProvider(props) {
   function addWishProduct(productId) {
     return axios.post(`https://ecommerce.routemisr.com/api/v1/wishlist`, { productId },
       {
-        headers: headers,
+        headers: {
+          token: localStorage.getItem("userToken")
+      },
 
       }).then((response) => response)
       .catch((error) => error)
@@ -25,7 +24,9 @@ export default function WishListContextProvider(props) {
 
   function showUserList() {
     return axios.get(`https://ecommerce.routemisr.com/api/v1/wishlist`, {
-      headers: headers,
+      headers: {
+        token: localStorage.getItem("userToken")
+    },
     }).then((response) => response)
       .catch((error) => error)
   }
@@ -33,7 +34,9 @@ export default function WishListContextProvider(props) {
   function deleteWish(productId) {
     return axios.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`,
       {
-        headers: headers
+        headers: {
+          token: localStorage.getItem("userToken")
+      }
       })
   }
 
@@ -53,7 +56,7 @@ export default function WishListContextProvider(props) {
 
   return (
     <>
-      <WishContext.Provider value={{ wishCounter, setWishCounter, addWishProduct, showUserList, deleteWish }}>
+      <WishContext.Provider value={{ wishCounter,wishCount , setWishCounter, addWishProduct, showUserList, deleteWish }}>
         {props.children}
       </WishContext.Provider>
     </>

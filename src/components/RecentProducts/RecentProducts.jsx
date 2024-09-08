@@ -8,8 +8,8 @@ import toast from 'react-hot-toast';
 import { WishContext } from '../WishListContext/WishListContext';
 
 export default function RecentProducts() {
-  const { addCartProducts, setCartCounter } = useContext(CartContext);
-  const { addWishProduct, setWishCounter } = useContext(WishContext);
+  const { addCartProducts, setCartCounter , showCartCounter } = useContext(CartContext);
+  const { addWishProduct, setWishCounter , wishCount } = useContext(WishContext);
 
   const [loadingButton, setLoadingButton] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
@@ -40,6 +40,12 @@ export default function RecentProducts() {
     queryFn: getProducts,
     staleTime: 8000,
   });
+  useEffect(() => {
+    showCartCounter()
+    wishCount()
+  
+  }, [])
+  
 
   async function addProduct(productId) {
     setLoadingButton(true);
