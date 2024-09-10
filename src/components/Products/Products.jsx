@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import { WishContext } from '../WishListContext/WishListContext';
 
 export default function Products() {
-  const { addCartProducts, setCartCounter } = useContext(CartContext);
+  const { addCartProducts, showCartCounter } = useContext(CartContext);
   const { addWishProduct, setWishCounter } = useContext(WishContext);
 
   const [loadingButton, setLoadingButton] = useState(false);
@@ -48,7 +48,7 @@ export default function Products() {
 
     if (response.data.status === 'success') {
       toast.success(response.data.message);
-      setCartCounter(response.data.numOfCartItems);
+      showCartCounter()
     } else {
       toast.error(response.data.message);
     }

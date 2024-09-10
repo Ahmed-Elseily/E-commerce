@@ -7,12 +7,15 @@ import * as Yup from "yup";
 import { userContext } from '../../context/UserContext';
 import { CartContext } from '../../context/CartContext';
 import toast from 'react-hot-toast';
+import { WishContext } from '../WishListContext/WishListContext';
 
 
 
 
 export default function CashCehckOut() {
   let { cartId, setCartCounter , deleteCart } = useContext(CartContext)
+
+  let {wishCount} = useContext(WishContext)
 
 
   let navigate = useNavigate()
@@ -44,6 +47,7 @@ export default function CashCehckOut() {
         setIsLoading(false)
         toast.success("Your order has been placed succssfully")
         setCartCounter(0)
+        wishCount()
         navigate("/cart")
       }
     } catch (error) {
@@ -76,6 +80,8 @@ export default function CashCehckOut() {
         window.location.href = response.data.session.url;
         deleteCart()
         setCartCounter(0)
+        wishCount()
+
         navigate("/cart")
       }
     } catch (error) {

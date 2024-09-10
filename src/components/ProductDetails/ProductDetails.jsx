@@ -27,7 +27,7 @@ export default function ProductDetails() {
   const [loadingWishButton, setLoadingWishButton] = useState(false);
   const [wishlist, setWishlist] = useState([]);
 
-  const { addCartProducts, setCartCounter } = useContext(CartContext);
+  const { addCartProducts , showCartCounter } = useContext(CartContext);
   const { addWishProduct, setWishCounter } = useContext(WishContext);
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function ProductDetails() {
 
     if (response.data.status === "success") {
       toast.success(response.data.message);
-      setCartCounter(response.data);
+      showCartCounter()      
     } else {
       toast.error(response.data.message);
     }

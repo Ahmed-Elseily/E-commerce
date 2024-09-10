@@ -7,7 +7,7 @@ export const CartContext = createContext()
 export default function CartContextProvider(props) {
 
 
-    const [cartCounter, setCartCounter] = useState(null)
+    const [cartCounter, setCartCounter] = useState(0)
     const [cartId, setCartId] = useState(null)
     console.log(cartId);
 

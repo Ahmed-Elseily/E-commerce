@@ -9,7 +9,7 @@ export const WishContext = createContext()
 
 export default function WishListContextProvider(props) {
 
-  const [wishCounter, setWishCounter] = useState(null)
+  const [wishCounter, setWishCounter] = useState(0)
 
   function addWishProduct(productId) {
     return axios.post(`https://ecommerce.routemisr.com/api/v1/wishlist`, { productId },

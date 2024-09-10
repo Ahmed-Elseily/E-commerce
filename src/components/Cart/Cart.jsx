@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 
 export default function Cart() {
 
-  const { getLoggedUserCart, updateCartCount, deleteCartItem, deleteCart , setCartCounter , setCartId } = useContext(CartContext);
+  const { getLoggedUserCart, updateCartCount, deleteCartItem, deleteCart , showCartCounter , setCartId } = useContext(CartContext);
   const [showCartProducts, setShowCartProducts] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState("");
@@ -39,8 +39,7 @@ export default function Cart() {
     if (data.status === "success") {
       toast.success("Item Removed Successfully");
       console.log(data);
-      setCartCounter(data)
-      
+      showCartCounter()
     } else {
       toast.error("Item Not Removed Successfully");
     }
@@ -57,7 +56,7 @@ export default function Cart() {
     await deleteCart();
     setShowCartProducts(null);  
     setTotalPrice(0);  
-    setTotalItems(0);  
+    setTotalItems(0);
   }
 
   useEffect(() => {

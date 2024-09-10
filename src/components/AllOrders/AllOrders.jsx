@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import Style from "./AllOrders.module.css"
 import axios from 'axios'
 import { jwtDecode } from 'jwt-decode';
+import { WishContext } from '../WishListContext/WishListContext';
 
 
 export default function AllOrders() {
+
+  let {wishCount} = useContext(WishContext)
 
 
   const [userOrders, setUserOrders] = useState([])
@@ -29,6 +32,8 @@ export default function AllOrders() {
   useEffect(() => {
     const user = jwtDecode(localStorage.getItem("userToken"))
     getUserOrders(user.id)
+    wishCount()
+
 
   }, [])
   return (
